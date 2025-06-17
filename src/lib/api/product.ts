@@ -13,11 +13,11 @@ export async function getAllProductByFilter(filter: Filter) {
 
     let products: IProduct[] = [];
     if (filter.query && filter.query !== 'all') {
-        const resp = await getProductsByName({name: filter.query,size: filter.limit});
+        const resp = await getProductsByName({name: filter.query, size: filter.limit});
         if (typeof resp !== 'string') {
             if (filter.category_name && filter.category_name !== 'all') {
-              products =  resp.data.filter(product => product.category.name == filter.category_name);
-            }else {
+                products = resp.data.filter(product => product.category.name == filter.category_name);
+            } else {
                 products = resp.data;
             }
         }
@@ -28,7 +28,7 @@ export async function getAllProductByFilter(filter: Filter) {
         }
     } else {
         const resp = await getAllProduct({
-            size:filter.limit
+            size: filter.limit
         });
         if (typeof resp !== 'string') {
             products = resp.data;
@@ -87,11 +87,11 @@ function applySorting(products: IProduct[], sort?: string): IProduct[] {
     }
 }
 
-export async function getProductsByCategory(categoryId: string,page: number =1, size: number = PAGE_SIZE) {
+export async function getProductsByCategory(categoryId: string, page: number = 1, size: number = PAGE_SIZE) {
     return callApiToArrayWithPage<IProduct>({url: `/identity/products/category/${categoryId}?page=${page}&size=${size}`})
 }
 
-export async function getProductsByName({name,page = 1, size = PAGE_SIZE}:{
+export async function getProductsByName({name, page = 1, size = PAGE_SIZE}: {
     name: string,
     page?: number,
     size?: number
@@ -99,12 +99,13 @@ export async function getProductsByName({name,page = 1, size = PAGE_SIZE}:{
     return callApiToArrayWithPage<IProduct>({url: `/identity/products/name/${name}?page=${page}&size=${size}`})
 }
 
-export async function getAllProduct({page= 1, size= PAGE_SIZE}: {
+export async function getAllProduct({page = 1, size = PAGE_SIZE}: {
     page?: number,
     size?: number
 }) {
     return callApiToArrayWithPage<IProduct>({url: `/identity/products?page=${page}&size=${size}`})
 }
+
 export async function updateProduct(product?: IProduct) {
     const t = await getTranslations("Product")
     if (!product) {
@@ -123,7 +124,12 @@ export async function updateProduct(product?: IProduct) {
         description: product.description,
         brand: product.brand,
     }
-    return callApiToObject<IProduct>({url: '/identity/products', data: updateProductRequest, method: PUT_METHOD, headers: generateHeaderAccessToken(session)})
+    return callApiToObject<IProduct>({
+        url: '/identity/products',
+        data: updateProductRequest,
+        method: PUT_METHOD,
+        headers: generateHeaderAccessToken(session)
+    })
 }
 
 export async function getProductById(id: string) {
@@ -131,23 +137,36 @@ export async function getProductById(id: string) {
 }
 
 export async function addColorForProduct(productId: string, colorRequests: AddColorRequest[]) {
+    const session = await auth()
     return callApiToArray<IProductColor>({
         url: `/identity/products/colors/${productId}`,
         data: colorRequests,
-        method: POST_METHOD
+        method: POST_METHOD,
+        headers: generateHeaderAccessToken(session)
     })
 }
-export async function getProductsByTag(tag_name: string,page: number = 1, size: number = PAGE_SIZE) {
-    return await callApiToArrayWithPage<IProduct>({url:`/identity/products/tag/${tag_name}?page=${page}&size=${size}`})
+
+export async function getProductsByTag(tag_name: string, page: number = 1, size: number = PAGE_SIZE) {
+    return await callApiToArrayWithPage<IProduct>({url: `/identity/products/tag/${tag_name}?page=${page}&size=${size}`})
 }
+
 export async function addProduct(product: AddProductRequest) {
-    return await callApiToObject<IProduct>({url:'/identity/products', data: product, method: POST_METHOD})
+    const session = await auth()
+    return await callApiToObject<IProduct>({
+        url: '/identity/products',
+        data: product,
+        method: POST_METHOD,
+        headers: generateHeaderAccessToken(session)
+    })
 }
+
 export async function addSizeForProduct(productId: string, sizeRequests: AddSizeRequest[]) {
+    const session = await auth()
     return callApiToArray<IProductSize>({
         url: `/identity/products/sizes/${productId}`,
         data: sizeRequests,
-        method: POST_METHOD
+        method: POST_METHOD,
+        headers: generateHeaderAccessToken(session)
     })
 }
 

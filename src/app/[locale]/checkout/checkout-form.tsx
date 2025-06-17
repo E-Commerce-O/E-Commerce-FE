@@ -169,7 +169,7 @@ const CheckoutForm = ({paymentMethods}: { paymentMethods: PaymentMethod[] }) => 
                     })
                 } else {
                     toast({
-                        description: 'Successfully created order',
+                        description: 'Đặt hàng thành công',
                         variant: 'success',
                     })
                     await clearCart()
@@ -179,7 +179,7 @@ const CheckoutForm = ({paymentMethods}: { paymentMethods: PaymentMethod[] }) => 
             } else {
                 toast({
                     title: 'Error',
-                    description: 'Your cart is empty',
+                    description: t('Cart.Your cart is empty'),
                     variant: 'destructive',
                 })
             }

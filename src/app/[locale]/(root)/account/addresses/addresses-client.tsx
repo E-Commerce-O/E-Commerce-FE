@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Plus, Edit, Trash2, MapPin, MoreHorizontal } from "lucide-react"
+import {Plus, Edit, Trash2, MapPin, MoreHorizontal, ArrowLeft} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import {
@@ -48,6 +48,9 @@ export default function AddressManagementPageClient({addressesI}:{addressesI: Ad
     const handleEditAddress = (addressId: string) => {
         router.push(`/account/addresses/edit/${addressId}`)
     }
+    const handleBack = () => {
+        router.back()
+    }
 
     // Handle delete address
     const handleDeleteAddress = async (addressId: string) => {
@@ -84,6 +87,10 @@ export default function AddressManagementPageClient({addressesI}:{addressesI: Ad
 
     return (
         <div className="container mx-auto py-8 px-4">
+            <Button variant="outline" size="sm" onClick={handleBack}>
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                {t('Back')}
+            </Button>
             <Card className="shadow-lg">
                 <CardHeader>
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">

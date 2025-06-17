@@ -36,7 +36,7 @@ export default function AddToCart({
                 try {
                     await addItem(item, 1)
                     toast({
-                        description: 'Added to Cart',
+                        description: t('Added to cart'),
                         action: (
                             <Button
                                 onClick={() => {
@@ -45,7 +45,7 @@ export default function AddToCart({
                             >
                                 {t('Go to Cart')}
                             </Button>
-                        ),
+                        )
                     })
 
                 } catch (

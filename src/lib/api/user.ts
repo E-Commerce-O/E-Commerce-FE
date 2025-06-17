@@ -35,7 +35,7 @@ export async function updateUserById(id: string,request: UpdateUserRequest) {
     }
 
     return callApiToObject<IUser>({
-        url: '/identity/users/changeInfo',
+        url: '/identity/users/changeInfo/admin?userId='+id,
         method: PUT_METHOD,
         data: request,
         headers: generateHeaderAccessToken(session)

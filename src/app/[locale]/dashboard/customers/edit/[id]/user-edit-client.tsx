@@ -297,7 +297,7 @@ export default function UserEditPageClient({ user }: { user: IUser }) {
                                     {/* Form Actions */}
                                     <div className="flex justify-end gap-4 pt-6">
                                         <Button type="button" variant="outline" onClick={handleCancel} disabled={isSubmitting}>
-                                            Cancel
+                                            {t('Cancel')}
                                         </Button>
                                         <Button type="submit" disabled={isSubmitting}>
                                             {isSubmitting ? (
@@ -308,7 +308,7 @@ export default function UserEditPageClient({ user }: { user: IUser }) {
                                             ) : (
                                                 <>
                                                     <Save className="mr-2 h-4 w-4" />
-                                                    Update User
+                                                    {t('Update User')}
                                                 </>
                                             )}
                                         </Button>
