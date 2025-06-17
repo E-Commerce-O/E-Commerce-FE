@@ -49,20 +49,20 @@ export function DialogEditProfile({
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="outline">Edit Profile</Button>
+                <Button variant="outline">{t('Edit Profile')}</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[470px]">
                 <DialogHeader>
-                    <DialogTitle>Edit profile</DialogTitle>
+                    <DialogTitle>{t('Edit Profile')}</DialogTitle>
                     <DialogDescription>
                         {/* eslint-disable-next-line*/}
-                        Make changes to your profile here. Click save when you're done.
+                        {t('Make changes to')}
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="fullName" className="text-right">
-                            Avatar
+                            {t('Avatar')}
                         </Label>
                         <Avatar className="h-9 w-9">
                             <AvatarImage src={avtPath} alt="Avatar" />
@@ -72,7 +72,7 @@ export function DialogEditProfile({
 
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="fullName" className="text-right">
-                            Full name
+                            {t('Full name')}
                         </Label>
                         <Input id="fullName" onChange={(e) => {
                             setFullName(e.target.value)
@@ -88,7 +88,7 @@ export function DialogEditProfile({
                     </div>
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="phone" className="text-right">
-                            Phone number
+                            {t('Phone number')}
                         </Label>
                         <Input id="phone" value={phone} onChange={(e) => {
                             setPhone(e.target.value)
@@ -96,7 +96,7 @@ export function DialogEditProfile({
                     </div>
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="dob" className="text-right">
-                            DOB
+                            {t('DOB')}
                         </Label>
                         <Input id="dob" value={dob} onChange={(e) => {
                             setDob(e.target.value)
@@ -104,7 +104,7 @@ export function DialogEditProfile({
                     </div>
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="gender" className="text-right">
-                            Gender
+                            {t('Gender')}
                         </Label>
                         <Select
                             value={gender.toString()}
@@ -126,10 +126,10 @@ export function DialogEditProfile({
                 <DialogFooter>
                     <DialogClose asChild>
                         <Button type="button" variant="destructive">
-                            Close
+                            {t('Close')}
                         </Button>
                     </DialogClose>
-                    <Button type="submit" onClick={handleSubmit}>Save changes</Button>
+                    <Button type="submit" onClick={handleSubmit}>{t('Save changes')}</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

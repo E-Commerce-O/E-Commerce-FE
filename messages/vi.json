@@ -419,5 +419,10 @@
   "UpdateProfileSuccess": "Cập nhật thông tin cá nhân thành công",
   "with in": "Trong vòng 30 ngày kể từ khi nhận hàng, bạn có thể trả lại sản phẩm mới, chưa mở, còn nguyên vẹn. Có thể áp dụng các trường hợp ngoại lệ và hạn chế",
   "we will send": "nút, chúng tôi sẽ gửi cho bạn một email xác nhận đã nhận được đơn đặt hàng của bạn. Hợp đồng mua hàng sẽ chỉ được hoàn tất khi chúng tôi gửi cho bạn một email thông báo rằng mặt hàng đã được gửi đi. Bằng việc đặt hàng, bạn đồng ý với",
-  "phone number invalid": "Số điện thoại không hợp lệ"
+  "phone number invalid": "Số điện thoại không hợp lệ",
+  "Edit Profile": "Chỉnh sửa hồ sơ",
+  "Make changes to": "Thực hiện thay đổi cho hồ sơ của bạn tại đây. Nhấp vào lưu khi bạn hoàn tất.",
+  "Avatar": "Ảnh đại diện",
+  "Phone number": "Số điện thoại",
+  "Save changes": "Lưu thay đổi"
 }

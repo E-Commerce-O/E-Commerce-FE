@@ -418,5 +418,10 @@
   "UpdateProfileSuccess": "Update profile successfully",
   "with in": "Within 30 days of delivery, you may return new, unopened merchandise in its original condition. Exceptions and restrictions apply",
   "we will send": "button, we will send you an e-mail acknowledging receipt of your order. Your contract to purchase an item will not be complete until we send you an e-mail notifying you that the item has been shipped to you. By placing your order, you agree to",
-  "phone number invalid": "Phone number invalid"
+  "phone number invalid": "Phone number invalid",
+  "Edit Profile": "Edit Profile",
+  "Make changes to": "Make changes to your profile here. Click save when you're done.",
+  "Avatar": "Avatar",
+  "Phone number": "Phone number",
+  "Save changes": "Save changes"
 }
